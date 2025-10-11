@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp
 {
-    partial class Form1
+    partial class CSVtoDOC
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -28,13 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.convert = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // convert
+            // 
+            this.convert.Location = new System.Drawing.Point(304, 177);
+            this.convert.Name = "convert";
+            this.convert.Size = new System.Drawing.Size(171, 70);
+            this.convert.TabIndex = 0;
+            this.convert.Text = "Convert";
+            this.convert.UseVisualStyleBackColor = true;
+            this.convert.Click += new System.EventHandler(this.convert_Click);
+            // 
+            // CSVtoDOC
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.convert);
+            this.Name = "CSVtoDOC";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button convert;
     }
 }
 
