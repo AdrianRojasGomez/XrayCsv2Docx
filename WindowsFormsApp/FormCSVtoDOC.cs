@@ -15,6 +15,9 @@ namespace WindowsFormsApp
 {
     public partial class CSVtoDOC : Form
     {
+        string csvPath = string.Empty;
+        string csvName = string.Empty;
+
         public CSVtoDOC()
         {
             InitializeComponent();
@@ -33,6 +36,30 @@ namespace WindowsFormsApp
 
                 throw;
             }
+        }
+
+        private void LoadCSV_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Title = "Select a CSV File";
+            dialog.Filter = "CSV Files (*.csv)|*.csv";
+            dialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            dialog.Multiselect = false;
+            dialog.CheckFileExists = true;
+            dialog.CheckPathExists = true;
+            dialog.RestoreDirectory = true;
+
+            DialogResult result = dialog.ShowDialog(this);
+            if(result == DialogResult.OK)
+            {
+                csvPath = dialog.FileName;
+                csvName = dialog.SafeFileName;
+            }
+
+            btnLoadCSV.Enabled = false;
+            btnCreateEvidence.Enabled = true;
+            btnLoadCSV.Text = csvName + " Loaded";
+
         }
     }
 }
