@@ -16,23 +16,30 @@ namespace Infrastructure
         {
             List<string> actions = new List<string>();
 
-            using (FileStream stream = File.OpenRead(csvPath))
-            using (StreamReader streamReader = new StreamReader(stream, Encoding.UTF8, true))
-            using (CsvReader csvReader = new CsvReader(streamReader, CultureInfo.InvariantCulture))
+            try
             {
-                if(!csvReader.Read() || !csvReader.ReadHeader())
+                using (FileStream stream = File.OpenRead(csvPath))
+                using (StreamReader streamReader = new StreamReader(stream, Encoding.UTF8, true))
+                using (CsvReader csvReader = new CsvReader(streamReader, CultureInfo.InvariantCulture))
                 {
-                    return actions;
-                }
-
-                while (csvReader.Read())
-                {
-                    string value = csvReader.GetField("Action");
-                    if(!string.IsNullOrWhiteSpace(value))
+                    if (!csvReader.Read() || !csvReader.ReadHeader())
                     {
-                        actions.Add(value);
+                        return actions;
+                    }
+
+                    while (csvReader.Read())
+                    {
+                        string value = csvReader.GetField("Action");
+                        if (!string.IsNullOrWhiteSpace(value))
+                        {
+                            actions.Add(value);
+                        }
                     }
                 }
+            }
+            catch (Exception)
+            {
+                return new List<string>() { };
             }
 
             return actions;

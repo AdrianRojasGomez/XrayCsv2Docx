@@ -30,7 +30,7 @@ namespace WindowsFormsApp
             try
             {
                 ActionReader reader = new ActionReader();
-                reader.ReadActions(@"C:\Users\Jackelin\Documents\XrayCsv2Docx\example.csv");
+                reader.ReadActions(csvPath);
 
             }
             catch (Exception)
@@ -71,7 +71,8 @@ namespace WindowsFormsApp
 
             if (actions == null || actions.Count == 0)
             {
-                MessageBox.Show("No se encontraron acciones en el CSV.");
+                MessageBox.Show("No actions were found in the CSV");
+                ResetCSVButton();
                 return;
             }
 
@@ -110,16 +111,19 @@ namespace WindowsFormsApp
 
                     MessageBox.Show("Documento creado correctamente.", "Success...",MessageBoxButtons.OK,MessageBoxIcon.Information);
 
-                    btnLoadCSV.Enabled = true;
-                    btnCreateEvidence.Enabled = false;
-                    btnLoadCSV.Text = "Load CSV";
-                    csvPath = null;
-                    textBoxJIRAKey.Text = string.Empty;
+                    ResetCSVButton();
                 }
 
             }
         }
 
-
+        private void ResetCSVButton()
+        {
+            btnLoadCSV.Enabled = true;
+            btnCreateEvidence.Enabled = false;
+            btnLoadCSV.Text = "Load CSV";
+            csvPath = null;
+            textBoxJIRAKey.Text = string.Empty;
+        }
     }
 }
