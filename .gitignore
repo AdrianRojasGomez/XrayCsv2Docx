@@ -1,0 +1,13 @@
+# .NET / VS
+**/bin/
+**/obj/
+**/publish/
+*.user
+*.suo
+*.cache
+*.log
+
+*.exe
+*.pdb
+*.dll
+*.zip
