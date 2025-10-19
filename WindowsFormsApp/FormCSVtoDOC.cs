@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Infrastructure;
-using Domain;
+using Data;
 
 
 namespace WindowsFormsApp
@@ -50,7 +50,7 @@ namespace WindowsFormsApp
             dialog.RestoreDirectory = true;
 
             DialogResult result = dialog.ShowDialog(this);
-            if(result == DialogResult.OK)
+            if (result == DialogResult.OK)
             {
                 csvPath = dialog.FileName;
                 csvName = dialog.SafeFileName;
@@ -61,5 +61,32 @@ namespace WindowsFormsApp
             btnLoadCSV.Text = csvName + " Loaded";
 
         }
+
+        private void btnCreateEvidence_Click(object sender, EventArgs e)
+        {
+            var reader = new ActionReader();
+            var actions = reader.ReadActions(csvPath);
+
+            if (actions == null || actions.Count == 0)
+            {
+                MessageBox.Show("No se encontraron acciones en el CSV.");
+                return;
+            }
+
+            using (var saveFileDialog = new SaveFileDialog
+            {
+                Filter = "Word Document (*.docx)|*.docx",
+                FileName = "Acciones.docx"
+            })
+            {
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    var exporter = new Infrastructure.DocxActionExporter();
+                    exporter.CreateNumberedListDoc(saveFileDialog.FileName, actions, "Lista de acciones");
+                    MessageBox.Show("Documento creado correctamente.");
+                }
+            }
+        }
+
     }
 }
