@@ -4,12 +4,14 @@ using System.IO;
 using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
+using Data;
+
 
 namespace Infrastructure
 {
-    public class DocxActionExporter
+    public class ActionExporter
     {
-        public void CreateNumberedListDoc(string docxPath, IEnumerable<string> actions, string title = null)
+        public void CreateNumberedListDoc(string docxPath, IEnumerable<string> actions, DocxHeader header, string title = null)
         {
             if (actions == null)
                 throw new ArgumentNullException(nameof(actions));
@@ -25,6 +27,18 @@ namespace Infrastructure
                 var mainPart = doc.AddMainDocumentPart();
                 mainPart.Document = new Document(new Body());
                 var body = mainPart.Document.Body;
+
+                // ===== Cabecera (una línea por campo) =====
+                // Siempre mostrar los títulos; si hay valor, lo imprime a la derecha.
+                AppendHeaderLine(body, "Environment", header?.Environment);
+                AppendHeaderLine(body, "Date", header?.Date);
+                AppendHeaderLine(body, "Site", header?.Site);
+                AppendHeaderLine(body, "Credentials", header?.Credentials);
+                AppendHeaderLine(body, "Tester Name", header?.TesterName);
+                AppendHeaderLine(body, "JIRA Key", header?.JiraKey);
+
+                // Línea en blanco separadora
+                body.Append(new Paragraph(new Run(new Text(string.Empty))));
 
                 // Definir numeración (1., 2., 3., …) a nivel 0
                 var numberingPart = mainPart.AddNewPart<NumberingDefinitionsPart>();
@@ -79,6 +93,21 @@ namespace Infrastructure
 
                 mainPart.Document.Save();
             }
+        }
+
+        private static void AppendHeaderLine(Body body, string label, string value)
+        {
+            var labelRun = new Run(
+                new RunProperties(new Bold()),      // Negrita SOLO para el label
+                new Text(label + ":")
+            );
+
+            // Un espacio y el valor (si viene null, queda vacío)
+            var spaceRun = new Run(new Text(" "));
+            var valueRun = new Run(new Text(value ?? string.Empty));
+
+            var paragraph = new Paragraph(labelRun, spaceRun, valueRun);
+            body.Append(paragraph);
         }
     }
 }
