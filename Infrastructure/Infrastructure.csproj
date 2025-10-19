@@ -74,12 +74,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionReader.cs" />
-    <Compile Include="DocxActionExporter.cs" />
+    <Compile Include="ActionExporter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Data.csproj">
+      <Project>{8d41fda7-1abf-4c29-83bf-9d1ed5a87d97}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
