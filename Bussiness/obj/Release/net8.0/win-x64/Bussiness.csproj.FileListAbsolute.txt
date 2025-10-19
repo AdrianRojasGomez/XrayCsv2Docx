@@ -1,0 +1,15 @@
+C:\Users\Jackelin\Documents\TestStepsCsv2Docx\WinFormsApp\Bussiness\bin\Release\net8.0\win-x64\Bussiness.deps.json
+C:\Users\Jackelin\Documents\TestStepsCsv2Docx\WinFormsApp\Bussiness\bin\Release\net8.0\win-x64\Bussiness.dll
+C:\Users\Jackelin\Documents\TestStepsCsv2Docx\WinFormsApp\Bussiness\bin\Release\net8.0\win-x64\Bussiness.pdb
+C:\Users\Jackelin\Documents\TestStepsCsv2Docx\WinFormsApp\Bussiness\bin\Release\net8.0\win-x64\Model.dll
+C:\Users\Jackelin\Documents\TestStepsCsv2Docx\WinFormsApp\Bussiness\bin\Release\net8.0\win-x64\Model.pdb
+C:\Users\Jackelin\Documents\TestStepsCsv2Docx\WinFormsApp\Bussiness\obj\Release\net8.0\win-x64\Bussiness.csproj.AssemblyReference.cache
+C:\Users\Jackelin\Documents\TestStepsCsv2Docx\WinFormsApp\Bussiness\obj\Release\net8.0\win-x64\Bussiness.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jackelin\Documents\TestStepsCsv2Docx\WinFormsApp\Bussiness\obj\Release\net8.0\win-x64\Bussiness.AssemblyInfoInputs.cache
+C:\Users\Jackelin\Documents\TestStepsCsv2Docx\WinFormsApp\Bussiness\obj\Release\net8.0\win-x64\Bussiness.AssemblyInfo.cs
+C:\Users\Jackelin\Documents\TestStepsCsv2Docx\WinFormsApp\Bussiness\obj\Release\net8.0\win-x64\Bussiness.csproj.CoreCompileInputs.cache
+C:\Users\Jackelin\Documents\TestStepsCsv2Docx\WinFormsApp\Bussiness\obj\Release\net8.0\win-x64\Bussiness.csproj.Up2Date
+C:\Users\Jackelin\Documents\TestStepsCsv2Docx\WinFormsApp\Bussiness\obj\Release\net8.0\win-x64\Bussiness.dll
+C:\Users\Jackelin\Documents\TestStepsCsv2Docx\WinFormsApp\Bussiness\obj\Release\net8.0\win-x64\refint\Bussiness.dll
+C:\Users\Jackelin\Documents\TestStepsCsv2Docx\WinFormsApp\Bussiness\obj\Release\net8.0\win-x64\Bussiness.pdb
+C:\Users\Jackelin\Documents\TestStepsCsv2Docx\WinFormsApp\Bussiness\obj\Release\net8.0\win-x64\ref\Bussiness.dll

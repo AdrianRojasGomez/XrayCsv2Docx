@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36518.9 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsApp", "WinFormsApp\WinFormsApp.csproj", "{4833E41B-1A56-4087-8F28-718759C47B89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{9C335C86-89FA-4CBD-8C87-73B5F982B159}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bussiness", "Bussiness\Bussiness.csproj", "{3B1D9A40-31BC-46DC-8772-D979F9A61DCB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4833E41B-1A56-4087-8F28-718759C47B89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4833E41B-1A56-4087-8F28-718759C47B89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4833E41B-1A56-4087-8F28-718759C47B89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4833E41B-1A56-4087-8F28-718759C47B89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C335C86-89FA-4CBD-8C87-73B5F982B159}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C335C86-89FA-4CBD-8C87-73B5F982B159}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C335C86-89FA-4CBD-8C87-73B5F982B159}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C335C86-89FA-4CBD-8C87-73B5F982B159}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B1D9A40-31BC-46DC-8772-D979F9A61DCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B1D9A40-31BC-46DC-8772-D979F9A61DCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B1D9A40-31BC-46DC-8772-D979F9A61DCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B1D9A40-31BC-46DC-8772-D979F9A61DCB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F690924D-2461-44BA-95FA-E6FC3664CD66}
+	EndGlobalSection
+EndGlobal
