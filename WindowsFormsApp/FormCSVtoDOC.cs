@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Infrastructure;
 using Data;
+using System.IO;
+using System.Diagnostics;
 
 
 namespace WindowsFormsApp
@@ -73,20 +75,51 @@ namespace WindowsFormsApp
                 return;
             }
 
+            var header = new DocxHeader()
+            {
+                Environment = textBoxEnv.Text,
+                Date = dateTimePicker.Value.ToShortDateString(),
+                Site = textBoxSite.Text,
+                Credentials = textBoxCredentials.Text,
+                TesterName = textBoxTester.Text,
+                JiraKey = textBoxJIRAKey.Text
+            };
+
+            var jira = header?.JiraKey?.Trim();
+            var title = string.IsNullOrWhiteSpace(jira) ? "CRTEvidence" : $@"{jira} CRTEvidence";
+
             using (var saveFileDialog = new SaveFileDialog
             {
                 Filter = "Word Document (*.docx)|*.docx",
-                FileName = "Acciones.docx"
+                FileName = title
             })
             {
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    var exporter = new Infrastructure.DocxActionExporter();
-                    exporter.CreateNumberedListDoc(saveFileDialog.FileName, actions, "Lista de acciones");
-                    MessageBox.Show("Documento creado correctamente.");
+                    var exporter = new ActionExporter();
+                    exporter.CreateNumberedListDoc(saveFileDialog.FileName, actions, header, "STEPS");
+
+                    if(checkBoxOpen.Checked && File.Exists(saveFileDialog.FileName))
+                    {
+                        Process.Start(new ProcessStartInfo
+                        {
+                            FileName = saveFileDialog.FileName,
+                            UseShellExecute = true
+                        });
+                    }
+
+                    MessageBox.Show("Documento creado correctamente.", "Success...",MessageBoxButtons.OK,MessageBoxIcon.Information);
+
+                    btnLoadCSV.Enabled = true;
+                    btnCreateEvidence.Enabled = false;
+                    btnLoadCSV.Text = "Load CSV";
+                    csvPath = null;
+                    textBoxJIRAKey.Text = string.Empty;
                 }
+
             }
         }
+
 
     }
 }
