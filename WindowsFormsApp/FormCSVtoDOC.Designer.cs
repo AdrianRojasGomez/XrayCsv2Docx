@@ -146,6 +146,7 @@
             this.btnCreateEvidence.TabIndex = 12;
             this.btnCreateEvidence.Text = "Create Evidence Document";
             this.btnCreateEvidence.UseVisualStyleBackColor = true;
+            this.btnCreateEvidence.Click += new System.EventHandler(this.btnCreateEvidence_Click);
             // 
             // labelJiraKey
             // 
